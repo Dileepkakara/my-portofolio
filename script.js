@@ -14,7 +14,7 @@ if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
 
 themeToggle.addEventListener('click', () => {
     body.classList.toggle('light-mode');
-    
+
     if (body.classList.contains('light-mode')) {
         icon.classList.replace('fa-moon', 'fa-sun');
         localStorage.setItem('theme', 'light');
@@ -30,7 +30,7 @@ const navLinks = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    
+
     // Change icon based on menu state
     const icon = hamburger.querySelector('i');
     if (navLinks.classList.contains('active')) {
@@ -54,12 +54,12 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
             window.scrollTo({
                 top: targetElement.offsetTop - 80,
@@ -79,9 +79,9 @@ tabs.forEach(tab => {
         tabs.forEach(t => t.classList.remove('active'));
         // Add active class to clicked tab
         tab.classList.add('active');
-        
+
         const category = tab.dataset.category;
-        
+
         // Filter items
         items.forEach(item => {
             if (category === 'all' || item.dataset.category === category) {
@@ -96,18 +96,18 @@ tabs.forEach(tab => {
 // Form submission
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
+contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     // Get form values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-    
+
     // Here you would typically send the form data to a server
     // For this example, we'll just show an alert
     alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon at ${email}.`);
-    
+
     // Reset the form
     contactForm.reset();
 });
@@ -249,7 +249,7 @@ let typingSpeed = 150;
 
 function typeWriter() {
     const currentText = professions[currentProfession];
-    
+
     if (isDeleting) {
         typewriterElement.textContent = currentText.substring(0, charIndex - 1);
         charIndex--;
@@ -259,7 +259,7 @@ function typeWriter() {
         charIndex++;
         typingSpeed = 150;
     }
-    
+
     if (!isDeleting && charIndex === currentText.length) {
         isDeleting = true;
         typingSpeed = 2000; // Pause at end
@@ -268,7 +268,7 @@ function typeWriter() {
         currentProfession = (currentProfession + 1) % professions.length;
         typingSpeed = 500; // Pause before typing next
     }
-    
+
     setTimeout(typeWriter, typingSpeed);
 }
 
